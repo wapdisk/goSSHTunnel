@@ -3,7 +3,7 @@ golang sshtunnel 实现免密码登录远程服务器，并映射远程端口到
 
 使用方法`go get github.com/bibinbin/goSSHTunnel`
 
-#linux和linux直接使用ssh就可以实现
+#linux和linux直接使用ssh就可以实现ssh隧道
 有机器A[10.16.31.56]，B[10.16.93.204]。现想A通过ssh免密码登录到B
 
 1.在A机下生成公钥/私钥对  `ssh-keygen -t rsa -P ''`
@@ -31,4 +31,13 @@ golang sshtunnel 实现免密码登录远程服务器，并映射远程端口到
     "LocalAddrString": "127.0.0.1:3690", 
     "RemoteAddrString": "127.0.0.1:9200"
 }
+```
+使用方法`go get github.com/bibinbin/goSSHTunnel`
+
+根据你的需要编译成不同平台下的程序
+```
+GO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -o gosshtunnel.exe github.com/goSSHTunnel
+GO_ENABLED=0 GOOS=windows GOARCH=386  go build -o gosshtunnel.exe github.com/goSSHTunnel
+GO_ENABLED=0 GOOS=linux GOARCH=amd64  go build -o gosshtunnel.exe github.com/goSSHTunnel
+GO_ENABLED=0 GOOS=linux GOARCH=386  go build -o gosshtunnel.exe github.com/goSSHTunnel
 ```
